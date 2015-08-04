@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    font-family: sans-serif;
+}
+
+.headSearch{
+    float: left;
+}
+
+.searchIcon{
+    float:left;
+}
+
+.searchTripSelect{
+    padding: 0px 0px 2px 5px;
+}
+
+.errorCenter{
+    margin: 15px auto;
+    width: 850px;
+    text-align: center;
+}
+
+.imgCenter{
+    margin: 0 auto;
+    text-align: center;
+}

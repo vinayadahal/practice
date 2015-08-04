@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    font-family: sans-serif;
+}
+
+body{
+    font-size: 12px;
+}
+
+.errorCenter{
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.imgCenter{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.admin_edit_btn {
+    float:left;
+    margin-top: 10px;
+    border:none;
+    background:#095077;
+    color:#fff;
+    padding:5px 20px;
+    border-radius:2px;
+    display:table-cell;
+}
+
+.admin_edit_btn:hover {
+    background:#1475A1;
+    cursor: pointer;
+}

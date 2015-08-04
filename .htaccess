@@ -1,0 +1,120 @@
+#<IfModule mod_rewrite.c>
+
+#deny from all
+RewriteEngine On    
+
+RewriteCond %{REQUEST_URI} !(/$|\.|^$)
+RewriteRule (.*) %{REQUEST_URI}/ [R=301,L]
+
+#user navigation
+DirectoryIndex home.php
+RewriteRule    ^index.php    error.php    [NC]
+#RewriteRule    ^home/    home.php    [NC]
+RewriteRule    ^page/([0-9]+)/?$    home.php?page=$1    [NC]
+RewriteRule    ^error/    error.php    [NC]
+RewriteRule    ^details/([0-9]+)/?$    detail.php?target=getDetails&id=$1    [NC]
+RewriteRule    ^searchType/([0-9a-zA-Z-\+]+)/?$    search.php?target=category&id=$1    [NC]
+RewriteRule    ^search/     search.php?target=search   [NC]
+RewriteRule    ^searchSite/     search.php?target=searchSite   [NC]
+RewriteRule    ^passGen/    passGen.php    [NC]
+RewriteRule    ^incompatible/    incompatible.php    [NC]
+RewriteRule    ^gallery/    gallery.php    [NC]
+RewriteRule    ^about/    about.php    [NC]
+RewriteRule    ^contact/    contact.php    [NC]
+RewriteRule    ^team/    team.php    [NC]
+RewriteRule    ^recommended/    recommended.php    [NC]
+RewriteRule    ^policies/    policies.php    [NC]
+RewriteRule    ^sendReview/    controller/reviewController.php?target=sendReview    [NC]
+
+
+#Login Module
+RewriteRule    ^admin/login/    admin/login.php    [NC,L]
+RewriteRule    ^admin/checkLogin/    admin/controller/loginController.php?target=doLogin    [NC,L]
+RewriteRule    ^admin/logout/    admin/controller/loginController.php?target=doLogout    [NC,L]
+
+
+#admin navigation
+RewriteRule    ^admin/$    admin/home.php    [NC,L]
+RewriteRule    ^admin/home/    admin/home.php    [NC,L]
+
+#admin content management
+RewriteRule    ^admin/clientReview/    admin/clientReview.php?target=showAll    [NC,L]
+RewriteRule    ^admin/editReview/([0-9]+)/?    admin/controller/reviewController.php?target=editReview&id=$1    [NC,L]
+RewriteRule    ^admin/updateReview/    admin/controller/reviewController.php?target=updateReview   [NC,L]
+RewriteRule    ^admin/publish/([0-9]+)/?$    admin/controller/reviewController.php?target=publish&id=$1   [NC,L]
+RewriteRule    ^admin/unpublish/([0-9]+)/?$    admin/controller/reviewController.php?target=unpublish&id=$1   [NC,L]
+RewriteRule    ^admin/deleteReview/([0-9]+)/?$    admin/controller/reviewController.php?target=deleteReview&id=$1   [NC,L]
+
+
+RewriteRule    ^admin/manageTeam/    admin/teamManagement.php?target=showAll    [NC,L]
+RewriteRule    ^admin/addTeam/    admin/addTeam.php    [NC,L]
+RewriteRule    ^admin/insertTeam/    admin/controller/teamController.php?target=insertTeam    [NC,L]
+RewriteRule    ^admin/editTeam/([0-9]+)/?    admin/controller/teamController.php?target=editTeam&id=$1    [NC,L]
+RewriteRule    ^admin/updateTeam/    admin/controller/teamController.php?target=updateTeam   [NC,L]
+RewriteRule    ^admin/deleteTeam/([0-9]+)/?$    admin/controller/teamController.php?target=deleteTeam&id=$1   [NC,L]
+
+RewriteRule    ^admin/contentManagement/    admin/contentManagement.php?target=showAll    [NC,L]
+RewriteRule    ^admin/addContent/    admin/addContent.php    [NC,L]
+RewriteRule    ^admin/insertContent/    admin/controller/contentController.php?target=insertContent    [NC,L]
+RewriteRule    ^admin/editInfo/([0-9]+)/?$    admin/controller/contentController.php?target=editInfo&id=$1   [NC,L]
+RewriteRule    ^admin/editContent/    admin/controller/contentController.php?target=editContent   [NC,L]
+RewriteRule    ^admin/deleteInfo/([0-9]+)/?$    admin/controller/contentController.php?target=deleteInfo&id=$1   [NC,L]
+
+#admin trip management
+RewriteRule    ^admin/tripManagement/([0-9]+)/?$    admin/tripManagement.php?target=showAll&page=$1    [NC,L]
+RewriteRule    ^admin/addTrip/    admin/addTrip.php?target=addTrip    [NC,L]
+RewriteRule    ^admin/insertTrip/    admin/controller/tripController.php?target=insertTrip    [NC,L]
+RewriteRule    ^admin/editTrip/([0-9]+)/?$    admin/controller/tripController.php?target=editTrip&id=$1   [NC,L]
+RewriteRule    ^admin/updateTrip/    admin/controller/tripController.php?target=updateTrip   [NC,L]
+RewriteRule    ^admin/deleteTrip/([0-9]+)/?$    admin/controller/tripController.php?target=deleteTrip&id=$1   [NC,L]
+
+# admin category managment
+RewriteRule    ^admin/activities/([0-9]+)/?$    admin/activities.php?target=showAll&page=$1    [NC,L]
+RewriteRule    ^admin/addActivity/    admin/addActivity.php    [NC,L]
+RewriteRule    ^admin/insertActivity/    admin/controller/activityController.php?target=insertCategory    [NC,L]
+RewriteRule    ^admin/editActivity/([0-9]+)/?$    admin/controller/activityController.php?target=editCategory&id=$1   [NC,L]
+RewriteRule    ^admin/updateActivity/    admin/controller/activityController.php?target=updateCategory   [NC,L]
+RewriteRule    ^admin/deleteActivity/([0-9]+)/?$    admin/controller/activityController.php?target=deleteCategory&id=$1   [NC,L]
+
+#Trekking Management
+RewriteRule    ^admin/trekking/([0-9]+)/?$    admin/trekking.php?target=showAll&page=$1    [NC,L]
+RewriteRule    ^admin/addTrekking/    admin/addTrekking.php    [NC,L]
+RewriteRule    ^admin/insertTrekking/    admin/controller/trekkingController.php?target=insertTrekking    [NC,L]
+RewriteRule    ^admin/editTrekking/([0-9]+)/?$    admin/controller/trekkingController.php?target=editTrekking&id=$1   [NC,L]
+RewriteRule    ^admin/updateTrekking/    admin/controller/trekkingController.php?target=updateTrekking   [NC,L]
+RewriteRule    ^admin/deleteTrekking/([0-9]+)/?$    admin/controller/trekkingController.php?target=deleteTrekking&id=$1   [NC,L]
+
+
+#Expedition Management
+RewriteRule    ^admin/expedition/([0-9]+)/?$    admin/expedition.php?target=showAll&page=$1    [NC,L]
+RewriteRule    ^admin/addExpedition/    admin/addExpedition.php    [NC,L]
+RewriteRule    ^admin/insertExpedition/    admin/controller/expeditionController.php?target=insertExpedition    [NC,L]
+RewriteRule    ^admin/editExpedition/([0-9]+)/?$    admin/controller/expeditionController.php?target=editExpedition&id=$1   [NC,L]
+RewriteRule    ^admin/updateExpedition/    admin/controller/expeditionController.php?target=updateExpedition   [NC,L]
+RewriteRule    ^admin/deleteExpedition/([0-9]+)/?$    admin/controller/expeditionController.php?target=deleteExpedition&id=$1   [NC,L]
+
+
+#Image Management
+RewriteRule    ^admin/images/    admin/imageManagement.php?target=showGallery    [NC,L]
+
+#Gallery Management
+RewriteRule    ^admin/gallery/    admin/galleryManagement.php?target=showGallery    [NC,L]
+RewriteRule    ^admin/uploadGallery/    admin/controller/galleryController.php?target=uploadGallery    [NC,L]
+RewriteRule    ^admin/deleteGallery/([0-9a-zA-Z-\+\.\_\-]+)/?    admin/controller/galleryController.php?target=deleteGallery&id=$1    [NC,L]
+
+#Slider Management
+RewriteRule    ^admin/showSlider/    admin/showSlider.php?target=slideShow    [NC,L]
+RewriteRule    ^admin/uploadImage/    admin/controller/sliderController.php?target=uploadImage    [NC,L]
+RewriteRule    ^admin/editSlider/([0-9]+)/?$    admin/controller/sliderController.php?target=editSlider&id=$1   [NC,L]
+RewriteRule    ^admin/cropImage/    admin/controller/sliderController.php?target=cropImage   [NC,L]
+RewriteRule    ^admin/deleteImage/([0-9]+)/?$    admin/controller/sliderController.php?target=deleteImage&id=$1   [NC,L]
+
+#admin settings managment
+RewriteRule    ^admin/settings/    admin/settings.php    [NC,L]
+RewriteRule    ^admin/editUser/    admin/editUser.php    [NC,L]
+RewriteRule    ^admin/updateUser/    admin/controller/settingController.php?target=updateUser    [NC,L]
+RewriteRule    ^admin/updatePassword/    admin/controller/settingController.php?target=updatePassword    [NC,L]
+
+
+RewriteRule    ^admin/editPassword/    admin/editPassword.php    [NC,L]
+#</IfModule>
