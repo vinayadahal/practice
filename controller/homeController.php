@@ -3,6 +3,7 @@
 $title = ucfirst('home');
 $data = $obj_query->select_all('slider');
 $latestTrips = $obj_query->select_all_order('trip', 'added', 'DESC', '3');
+$shortSweet = $obj_query->select_all_order('trip', 'added', 'DESC', '3', 'category', 'short and sweet');
 $allFeatured = $obj_query->select_all_order('trip', 'added', 'DESC', '3', 'featured', 'Yes');
 $popular = $obj_query->select_all_order('visited', 'visited', 'DESC', '3');
 //for pagination

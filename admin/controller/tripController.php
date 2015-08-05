@@ -146,6 +146,9 @@ if (!empty($_GET['target'])) {
             header('location:' . baseUrl . 'admin/tripManagement/1/');
         }
     }
+    if ($target == 'generateThumb') {
+        generateThumb();
+    }
 }
 
 function fileCheck($imgFile) {
@@ -294,4 +297,36 @@ function compareImage() {
     foreach ($data as $rmImg) {
         unlink($_SESSION['rootDir'] . '/images/thumb/' . $rmImg);
     }
+}
+
+function generateThumb() {
+    require '../../init.php';
+    $img = scandir($_SESSION['rootDir'] . '/images/trip/');
+    foreach ($img as $file) {
+        if ($file == '.' || $file == '..') {
+            continue;
+        } else {
+            $imgData[] = $file;
+        }
+    }
+    $files = scandir($_SESSION['rootDir'] . '/images/thumb/');
+    foreach ($files as $file) {
+        if ($file == '.' || $file == '..') {
+            continue;
+        } else {
+            $thumbData[] = $file;
+        }
+    }
+    if (!empty($thumbData)) {
+        $data = array_diff($imgData, $thumbData);
+        foreach ($data as $thumbImg) {
+            createThumbnail($_SESSION['rootDir'] . '/images/trip/' . $thumbImg);
+        }
+    } else {
+        foreach ($imgData as $thumbImg) {
+            createThumbnail($_SESSION['rootDir'] . '/images/trip/' . $thumbImg);
+        }
+    }
+    
+    echo 'Icons generated successfully!';
 }

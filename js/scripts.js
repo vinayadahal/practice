@@ -101,6 +101,10 @@ $(document).ready(function () {
         sendReview();
         event.preventDefault();
     });
+
+    $("#generateIcons").click(function () {
+
+    });
 });
 
 function countCharsCaption() {
@@ -352,4 +356,23 @@ function sendReview() {
             }
         });
     }
+}
+
+function generateIcons(url) {
+    $("#generating").fadeIn();
+    $.ajax({
+        url: url,
+        type: 'get',
+        cache: false,
+        success: function (response) {
+            $("#generating").fadeOut(function () {
+                alert(response);
+            });
+        },
+        failure: function (response) {
+            $("#generating").fadeOut(function () {
+                alert('Cannot generate icons');
+            });
+        }
+    });
 }

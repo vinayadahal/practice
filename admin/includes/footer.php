@@ -1,3 +1,13 @@
+<div class="popupBackground" id="generating">
+    <div style="background:#fff;margin:250px auto;width: 200px;padding: 10px 0px;">
+        <div style="width:200px;height:80px;text-align:center" id="loading">
+            <img src="<?php echo baseUrl; ?>images/loader.gif" alt="loading" style="height:64px;width:64px" />
+            <br>
+            Generating Icon...
+        </div>
+    </div>
+</div>
+
 <?php
 $col = array('content');
 $id = 'keyword';

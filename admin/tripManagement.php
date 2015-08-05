@@ -8,6 +8,7 @@ require 'includes/header.php';
     <div class="panel">
         <a href="<?php echo baseUrl ?>admin/home/" style="outline: 0px;" title="Back"><i class="glyphicon glyphicon-circle-arrow-left back_btn"></i></a>
         <a href="<?php echo baseUrl ?>admin/addTrip/" style="outline: 0px;" title="Add"><i class="glyphicon glyphicon-plus-sign back_btn"></i></a>
+        <a href="javascript:void(0);" onclick="generateIcons('<?php echo baseUrl; ?>admin/generateThumb')"><button class="admin_edit_btn" style="float: right;">Generate Icons</button></a>
         <table class="table table-hover table_override_content">
             <tr>
                 <th width="20">S.No.</th>

@@ -16,17 +16,15 @@ require 'includes/header.php';
                 <br/>
                 <table>
                     <tr>
-                        <th colspan="3">Summary:</th>
+                        <th colspan="2">Summary:</th>
                     </tr>
                     <tr>
                         <td>Area</td>
                         <td>Duration</td>
-                        <td>Departure</td>
                     </tr>
                     <tr>
                         <td><?php echo ucfirst($res['area']); ?></td>
                         <td><?php echo $res['duration']; ?></td>
-                        <td><?php echo $res['departure']; ?></td>
                     </tr>
                 </table>
                 <?php if ($res['featured'] == 'Yes' && $res['offer'] != NULL) { ?>

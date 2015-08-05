@@ -67,6 +67,8 @@ RewriteRule    ^admin/insertTrip/    admin/controller/tripController.php?target=
 RewriteRule    ^admin/editTrip/([0-9]+)/?$    admin/controller/tripController.php?target=editTrip&id=$1   [NC,L]
 RewriteRule    ^admin/updateTrip/    admin/controller/tripController.php?target=updateTrip   [NC,L]
 RewriteRule    ^admin/deleteTrip/([0-9]+)/?$    admin/controller/tripController.php?target=deleteTrip&id=$1   [NC,L]
+RewriteRule    ^admin/generateThumb/    admin/controller/tripController.php?target=generateThumb   [NC,L]
+
 
 # admin category managment
 RewriteRule    ^admin/activities/([0-9]+)/?$    admin/activities.php?target=showAll&page=$1    [NC,L]
